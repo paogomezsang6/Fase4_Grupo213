@@ -1,23 +1,24 @@
-Hola Muchachos
-De acuerdo a la actividad comparto lo realizado hasta el momento:
-# Sistema Integral de Gestión – Software FJ
+Hola muchachos, a continuación adjunto el avance que realice nuevamente:
 
-## Descripción
-Desarrollo de un sistema en Python para gestionar clientes, servicios y reservas, aplicando los principios de programación orientada a objetos, sin utilizar bases de datos..
-
-## Avances realizados
 - Creación de la clase abstracta `Entidad`.
 - Implementación de la clase `Cliente` con atributos privados y validaciones.
 - Creación de la clase abstracta `Servicio`.
-- Implementación de tres servicios: ReservaSala, AlquilerEquipo y AsesoriaEspecializada.
+- Implementación de tres servicios: `ReservaSala`, `AlquilerEquipo` y `AsesoriaEspecializada`.
 - Aplicación de herencia, encapsulación, abstracción y polimorfismo.
-- Pruebas iniciales de registro de clientes y cálculo de costos.
+- Implementación de la clase `Reserva`, con validación, cálculo de costos y control de estados.
+- Confirmación, cancelación y procesamiento de reservas.
+- Pruebas iniciales de clientes, servicios y reservas.
+- Creación de excepciones personalizadas.
 
 ## Pendiente
-- Implementación de reservas.
-- Manejo de excepciones personalizadas.
-- Registro de eventos y errores en archivos LOG.
-- Ejecución de las diez operaciones solicitadas.
+- Implementar el registro de eventos y errores mediante archivos LOG.
+- Integrar todas las funciones en el programa principal.
+- Fortalecer el manejo de excepciones.
+- Realizar y documentar las diez operaciones solicitadas en la guía.
+- Ejecutar las pruebas finales y realizar ajustes.
+
+## Herramientas utilizadas
+Python, Visual Studio Code y GitHub.
 
 **Curso:** Programación – 213023  
 **Actividad:** Fase 4 – Grupo 213  
