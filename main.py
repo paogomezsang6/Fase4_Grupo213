@@ -1,41 +1,40 @@
-
-# Importar los servicios
+from clientes import Cliente
 from servicios import ReservaSala
-from servicios import AlquilerEquipo
-from servicios import AsesoriaEspecializada
+from reservas import Reserva
 
-# Crear una sala
-sala = ReservaSala("S01", "Sala de reuniones", 50000, 20)
-
-# Crear un equipo
-equipo = AlquilerEquipo("E01", "Video Beam", 30000, 5)
-
-# Crear una asesoria
-asesoria = AsesoriaEspecializada(
-    "A01", "Asesoria tecnica", 80000, "Programacion"
+# Crear un cliente
+cliente1 = Cliente(
+    "123456789",
+    "Carlos Perez",
+    "carlos@gmail.com",
+    "3001234567"
 )
 
-# Mostrar los servicios y sus costos
-print("SERVICIOS DISPONIBLES")
-print("------------------------------")
+# Crear un servicio
+sala = ReservaSala(
+    "S01",
+    "Sala de reuniones",
+    50000,
+    20
+)
 
-print(sala.describir())
-print("Costo:", sala.calcular_costo(2))
+# Crear una reserva
+reserva1 = Reserva(
+    "R001",
+    cliente1,
+    sala,
+    2,
+    parametros={"personas": 10}
+)
 
-print("------------------------------")
+print("SISTEMA DE RESERVAS")
+print("--------------------------")
+print(reserva1.mostrar_informacion())
 
-print(equipo.describir())
-print("Costo:", equipo.calcular_costo(3, 10))
+# Confirmar reserva
+reserva1.confirmar()
+print("\nEstado despues de confirmar:", reserva1.estado)
 
-print("------------------------------")
-
-print(asesoria.describir())
-print("Costo:", asesoria.calcular_costo(2, 0, 19))
-
-# Validar los parametros de los servicios
-print("------------------------------")
-print("Validacion de servicios:")
-
-print(sala.validar_parametros(personas=10))
-print(equipo.validar_parametros(cantidad=2))
-print(asesoria.validar_parametros(horas=2))
+# Procesar reserva
+reserva1.procesar()
+print("Estado despues de procesar:", reserva1.estado)
