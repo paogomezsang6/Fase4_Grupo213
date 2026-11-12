@@ -18,6 +18,7 @@ class Reserva:
         self.__estado = "Pendiente"
 
         self.validar()
+
         self.__costo = self.__servicio.calcular_costo(
             self.__duracion, self.__descuento, self.__impuesto
         )
@@ -59,28 +60,38 @@ class Reserva:
             self.__servicio.validar_parametros(**self.__parametros)
 
         except (ValueError, TypeError) as error:
-            raise ReservaError("No fue posible crear la reserva: " + str(error)) from error
+            raise ReservaError(
+                "No fue posible crear la reserva: " + str(error)
+            ) from error
 
     def confirmar(self):
         if self.__estado != "Pendiente":
-            raise EstadoReservaError("Solo se pueden confirmar reservas pendientes.")
+            raise EstadoReservaError(
+                "Solo se pueden confirmar reservas pendientes."
+            )
 
         self.__estado = "Confirmada"
         return True
 
     def cancelar(self):
         if self.__estado == "Procesada":
-            raise EstadoReservaError("No se puede cancelar una reserva procesada.")
+            raise EstadoReservaError(
+                "No se puede cancelar una reserva procesada."
+            )
 
         if self.__estado == "Cancelada":
-            raise EstadoReservaError("La reserva ya se encuentra cancelada.")
+            raise EstadoReservaError(
+                "La reserva ya se encuentra cancelada."
+            )
 
         self.__estado = "Cancelada"
         return True
 
     def procesar(self):
         if self.__estado != "Confirmada":
-            raise EstadoReservaError("Primero debe confirmar la reserva.")
+            raise EstadoReservaError(
+                "Primero debe confirmar la reserva."
+            )
 
         self.__estado = "Procesada"
         return True
@@ -94,3 +105,4 @@ class Reserva:
             "\nCosto: $" + str(round(self.__costo, 2)) +
             "\nEstado: " + self.__estado
         )
+
